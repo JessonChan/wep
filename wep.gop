@@ -1,0 +1,5 @@
+package wep
+
+func Run(){
+	println("go")
+}
