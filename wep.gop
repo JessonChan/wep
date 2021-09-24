@@ -1,4 +1,4 @@
-package wep
+package "github.com/JessonChan/wep"
 
 func Run(){
 	println("go")
