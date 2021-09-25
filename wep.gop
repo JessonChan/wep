@@ -1,4 +1,6 @@
 package wep
-func Run(){
-	println("go")
+
+func Run(args ...string){
+	addr:=append(args,":8080")[0]
+	println("go"+addr)
 }
