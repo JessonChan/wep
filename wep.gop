@@ -1,6 +1,18 @@
 package wep
 
-func Run(args ...string){
-	addr:=append(args,":8080")[0]
-	println("go"+addr)
+func Run(){
+}
+
+func Join(slices interface{}, sep string) string {
+	full := ""
+	if reflect.TypeOf(slices).Kind() == reflect.Slice {
+		s := reflect.ValueOf(slices)
+		for i := 0; i < s.Len(); i++ {
+			full += fmt.Sprint(s.Index(i))
+			if i < s.Len()-1 {
+				full += sep
+			}
+		}
+	}
+	return full
 }
