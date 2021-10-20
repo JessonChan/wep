@@ -14,3 +14,11 @@ func Join(slices interface{}, sep string) (full string) {
 	}
 	return
 }
+func Each(slices interface{}, fn func( int)){
+   	if reflect.TypeOf(slices).Kind() == reflect.Slice {
+   		s := reflect.ValueOf(slices)
+   		for i := 0; i < s.Len(); i++ {
+   		    fn(i)
+   		}
+   	}
+}
