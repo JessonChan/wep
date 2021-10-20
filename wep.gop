@@ -2,9 +2,6 @@ package wep
 import "fmt"
 import "reflect"
 
-func Run(){
-}
-
 func Join(slices interface{}, sep string) string {
 	full := ""
 	if reflect.TypeOf(slices).Kind() == reflect.Slice {
