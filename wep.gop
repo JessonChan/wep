@@ -2,8 +2,7 @@ package wep
 import "fmt"
 import "reflect"
 
-func Join(slices interface{}, sep string) string {
-	full := ""
+func Join(slices interface{}, sep string) (full string) {
 	if reflect.TypeOf(slices).Kind() == reflect.Slice {
 		s := reflect.ValueOf(slices)
 		for i := 0; i < s.Len(); i++ {
@@ -13,5 +12,5 @@ func Join(slices interface{}, sep string) string {
 			}
 		}
 	}
-	return full
+	return
 }
