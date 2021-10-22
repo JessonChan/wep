@@ -1,4 +1,5 @@
 package wep
+
 import "fmt"
 import "reflect"
 
@@ -14,11 +15,11 @@ func Join(slices interface{}, sep string) (full string) {
 	}
 	return
 }
-func Each(slices interface{}, fn func( int)){
+func Each(slices interface{}, fn func(k int,v interface{})){
    	if reflect.TypeOf(slices).Kind() == reflect.Slice {
    		s := reflect.ValueOf(slices)
    		for i := 0; i < s.Len(); i++ {
-   		    fn(i)
+   		    fn(i,s.Index(i).Interface())
    		}
    	}
 }

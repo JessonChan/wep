@@ -7,42 +7,43 @@ import (
 
 func Join(slices interface {
 }, sep string) (full string) {
-//line /Users/jessonchan/code/golang/wep/wep.gop:6
-	if reflect.TypeOf(slices).Kind() == reflect.Slice {
 //line /Users/jessonchan/code/golang/wep/wep.gop:7
+	if reflect.TypeOf(slices).Kind() == reflect.Slice {
+//line /Users/jessonchan/code/golang/wep/wep.gop:8
 		s := reflect.ValueOf(slices)
-//line /Users/jessonchan/code/golang/wep/wep.gop:8
-		for
-//line /Users/jessonchan/code/golang/wep/wep.gop:8
-		i := 0; i < s.Len();
-//line /Users/jessonchan/code/golang/wep/wep.gop:8
-		i++ {
 //line /Users/jessonchan/code/golang/wep/wep.gop:9
-			full += fmt.Sprint(s.Index(i))
+		for
+//line /Users/jessonchan/code/golang/wep/wep.gop:9
+		i := 0; i < s.Len();
+//line /Users/jessonchan/code/golang/wep/wep.gop:9
+		i++ {
 //line /Users/jessonchan/code/golang/wep/wep.gop:10
-			if i < s.Len()-1 {
+			full += fmt.Sprint(s.Index(i))
 //line /Users/jessonchan/code/golang/wep/wep.gop:11
+			if i < s.Len()-1 {
+//line /Users/jessonchan/code/golang/wep/wep.gop:12
 				full += sep
 			}
 		}
 	}
-//line /Users/jessonchan/code/golang/wep/wep.gop:15
+//line /Users/jessonchan/code/golang/wep/wep.gop:16
 	return
 }
 func Each(slices interface {
-}, fn func(int)) {
-//line /Users/jessonchan/code/golang/wep/wep.gop:18
-	if reflect.TypeOf(slices).Kind() == reflect.Slice {
+}, fn func(k int, v interface {
+})) {
 //line /Users/jessonchan/code/golang/wep/wep.gop:19
+	if reflect.TypeOf(slices).Kind() == reflect.Slice {
+//line /Users/jessonchan/code/golang/wep/wep.gop:20
 		s := reflect.ValueOf(slices)
-//line /Users/jessonchan/code/golang/wep/wep.gop:20
-		for
-//line /Users/jessonchan/code/golang/wep/wep.gop:20
-		i := 0; i < s.Len();
-//line /Users/jessonchan/code/golang/wep/wep.gop:20
-		i++ {
 //line /Users/jessonchan/code/golang/wep/wep.gop:21
-			fn(i)
+		for
+//line /Users/jessonchan/code/golang/wep/wep.gop:21
+		i := 0; i < s.Len();
+//line /Users/jessonchan/code/golang/wep/wep.gop:21
+		i++ {
+//line /Users/jessonchan/code/golang/wep/wep.gop:22
+			fn(i, s.Index(i).Interface())
 		}
 	}
 }
