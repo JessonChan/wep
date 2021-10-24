@@ -47,3 +47,40 @@ func Each(slices interface {
 		}
 	}
 }
+func EachMap(slices interface {
+}, fn func(k interface {
+}, v interface {
+})) {
+//line /Users/jessonchan/code/golang/wep/wep.gop:27
+	if reflect.TypeOf(slices).Kind() == reflect.Map {
+//line /Users/jessonchan/code/golang/wep/wep.gop:28
+		s := reflect.ValueOf(slices)
+//line /Users/jessonchan/code/golang/wep/wep.gop:29
+		keys := s.MapKeys()
+//line /Users/jessonchan/code/golang/wep/wep.gop:30
+		for
+//line /Users/jessonchan/code/golang/wep/wep.gop:30
+		i := 0; i < len(keys);
+//line /Users/jessonchan/code/golang/wep/wep.gop:30
+		i++ {
+//line /Users/jessonchan/code/golang/wep/wep.gop:31
+			fn(keys[i].Interface(), s.MapIndex(keys[i]).Interface())
+		}
+	}
+}
+func SubString(str string, start int, end int) string {
+//line /Users/jessonchan/code/golang/wep/wep.gop:36
+	if start >= end || str == "" || start >= len(str) {
+//line /Users/jessonchan/code/golang/wep/wep.gop:37
+		return ""
+	}
+//line /Users/jessonchan/code/golang/wep/wep.gop:39
+	rs := []rune(str)
+//line /Users/jessonchan/code/golang/wep/wep.gop:40
+	if end > len(rs) {
+//line /Users/jessonchan/code/golang/wep/wep.gop:41
+		end = len(rs)
+	}
+//line /Users/jessonchan/code/golang/wep/wep.gop:43
+	return string(rs[start:end])
+}

@@ -16,10 +16,29 @@ func Join(slices interface{}, sep string) (full string) {
 	return
 }
 func Each(slices interface{}, fn func(k int,v interface{})){
-   	if reflect.TypeOf(slices).Kind() == reflect.Slice {
+   	if reflect.TypeOf(slices).Kind() == reflect.Slice{
    		s := reflect.ValueOf(slices)
    		for i := 0; i < s.Len(); i++ {
    		    fn(i,s.Index(i).Interface())
    		}
    	}
+}
+func EachMap(slices interface{}, fn func(k interface{},v interface{})){
+   	if reflect.TypeOf(slices).Kind() == reflect.Map{
+   		s := reflect.ValueOf(slices)
+   		keys:=s.MapKeys()
+   		for i := 0; i < len(keys); i++ {
+   		    fn(keys[i].Interface(),s.MapIndex(keys[i]).Interface())
+   		}
+   	}
+}
+func SubString(str string,start,end int)string{
+    if start>=end||str==""||start>=len(str){
+    return ""
+    }
+    rs:=[]rune(str)
+    if end>len(rs){
+        end=len(rs)
+    }
+    return string(rs[start:end])
 }
