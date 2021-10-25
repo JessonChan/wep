@@ -70,17 +70,22 @@ func EachMap(slices interface {
 }
 func SubString(str string, start int, end int) string {
 //line /Users/jessonchan/code/golang/wep/wep.gop:36
-	if start >= end || str == "" || start >= len(str) {
+	if end < 0 {
 //line /Users/jessonchan/code/golang/wep/wep.gop:37
-		return ""
+		end = len(str)
 	}
 //line /Users/jessonchan/code/golang/wep/wep.gop:39
-	rs := []rune(str)
+	if start >= end || str == "" || start >= len(str) {
 //line /Users/jessonchan/code/golang/wep/wep.gop:40
-	if end > len(rs) || end < 0 {
-//line /Users/jessonchan/code/golang/wep/wep.gop:41
+		return ""
+	}
+//line /Users/jessonchan/code/golang/wep/wep.gop:42
+	rs := []rune(str)
+//line /Users/jessonchan/code/golang/wep/wep.gop:43
+	if end > len(rs) {
+//line /Users/jessonchan/code/golang/wep/wep.gop:44
 		end = len(rs)
 	}
-//line /Users/jessonchan/code/golang/wep/wep.gop:43
+//line /Users/jessonchan/code/golang/wep/wep.gop:46
 	return string(rs[start:end])
 }
