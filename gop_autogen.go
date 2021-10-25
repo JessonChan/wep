@@ -77,7 +77,7 @@ func SubString(str string, start int, end int) string {
 //line /Users/jessonchan/code/golang/wep/wep.gop:39
 	rs := []rune(str)
 //line /Users/jessonchan/code/golang/wep/wep.gop:40
-	if end > len(rs) {
+	if end > len(rs) || end < 0 {
 //line /Users/jessonchan/code/golang/wep/wep.gop:41
 		end = len(rs)
 	}

@@ -37,7 +37,7 @@ func SubString(str string,start,end int)string{
     return ""
     }
     rs:=[]rune(str)
-    if end>len(rs){
+    if end>len(rs)||end<0{
         end=len(rs)
     }
     return string(rs[start:end])
