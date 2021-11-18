@@ -2,6 +2,7 @@ package wep
 
 import "fmt"
 import "reflect"
+import "strings"
 
 func Join(slices interface{}, sep string) (full string) {
 	if reflect.TypeOf(slices).Kind() == reflect.Slice {
@@ -44,4 +45,8 @@ func SubString(str string,start,end int)string{
         end=len(rs)
     }
     return string(rs[start:end])
+}
+func Contains(str string,search string)bool{
+    return strings.Contains(str,search)
+}
 }
