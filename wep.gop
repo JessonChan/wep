@@ -49,4 +49,3 @@ func SubString(str string,start,end int)string{
 func Contains(str string,search string)bool{
     return strings.Contains(str,search)
 }
-}
